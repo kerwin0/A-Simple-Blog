@@ -1,0 +1,33 @@
+{% extends "../../blogs/templates/base.html" %}
+
+{% block content %}
+    <form action="" method="post" >
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="new_name">姓名</label>
+            <input type="text" class="form-control" name="new_name" value="{{ ret.name }}">
+        </div>
+        <div class="form-group">
+            <label for="new_age">年龄</label>
+            <input type="text" class="form-control" name="new_age" value="{{ ret.age }}">
+        </div>
+        <div class="form-group">
+            <label for="new_phone">手机</label>
+            <input type="text" class="form-control" name="new_phone" value="{{ ret.phone }}">
+        </div>
+        <div class="form-group">
+            <label for="new_address">地址</label>
+            <input type="text" class="form-control" name="new_address" value="{{ ret.detail.address }}">
+        </div>
+        <div class="form-group">
+            <label for="new_email">邮箱</label>
+            <input type="text" class="form-control" name="new_email" value="{{ ret.detail.author_email }}">
+        </div>
+
+
+        <button type="submit" class="btn btn-default pull-right">提交</button>
+        <button type="reset" class="btn btn-default pull-right">重置</button>
+    </form>
+
+
+{% endblock %}

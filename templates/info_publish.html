@@ -1,0 +1,29 @@
+{% extends "../../blogs/templates/base.html" %}
+
+{% block content %}
+    <h2 class="sub-header">出版社管理</h2>
+    <a href="{% url "AddPublish" %}" class="btn btn-primary">添加出版社</a>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>出版社名称</th>
+                <th>出版社地址</th>
+                <th>编辑操作</th>
+                <th>删除操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for foo in ret %}
+                <tr>
+                    <td>{{ foo.name }}</td>
+                    <td>{{ foo.city }}</td>
+                    <td><a href="/changepub/{{ foo.id }}" class="btn btn-primary btn-sm">编辑</a></td>
+                    <td><a href="/deletepub/{{ foo.id }}" class="btn btn-primary btn-sm">删除</a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

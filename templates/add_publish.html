@@ -1,0 +1,19 @@
+{% extends "../../blogs/templates/base.html" %}
+
+{% block content %}
+    <form action="" method="post" >
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="new_name">出版社名称</label>
+            <input type="text" class="form-control" name="new_name">
+        </div>
+        <div class="form-group">
+            <label for="new_city">出版社地址</label>
+            <input type="text" class="form-control" name="new_city">
+        </div>
+
+
+        <button type="submit" class="btn btn-default pull-right">提交</button>
+        <button type="reset" class="btn btn-default pull-right">重置</button>
+    </form>
+{% endblock %}

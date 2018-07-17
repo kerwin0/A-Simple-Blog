@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <form action="" method="post" novalidate> {# 提交时表单不对其进行验证 #}
+                    {% csrf_token %}
+                    {% for foo in form %}
+                        <div class="form-group">
+                            <lable for="">{{ foo.label }}</lable>
+                            {{ foo }} <span class="error pull-right">{{ foo.errors.0 }}</span>
+                            {% if foo.label == "确认密码" %}
+                                <span class="error pull-right">{{ g_error|default_if_none:"" }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-sm btn-default">
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
